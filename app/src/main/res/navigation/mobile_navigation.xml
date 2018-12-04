@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="bzh.caerwent.learnwords.welcome.ui.WelcomeFragment"
+        android:label="welcome_fragment"
+        tools:layout="@layout/welcome_fragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_wordsListSelectionFragment"
+            app:destination="@id/wordsListSelectionFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_confGroupsListFragment"
+            app:destination="@id/confGroupsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordsListSelectionFragment"
+        android:name="bzh.caerwent.learnwords.play.ui.WordsListSelectionFragment"
+        android:label="words_list_selection_fragment"
+        tools:layout="@layout/words_list_selection_fragment">
+        <action
+            android:id="@+id/action_wordsListSelectionFragment_to_wordslistExerciceFragment"
+            app:destination="@id/wordslistExerciceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordslistExerciceFragment"
+        android:name="bzh.caerwent.learnwords.play.ui.WordslistExerciceFragment"
+        android:label="wordslist_exercice_fragment"
+        tools:layout="@layout/wordslist_exercice_fragment">
+        <action
+            android:id="@+id/action_wordslistExerciceFragment_to_wordsListCorrectionFragment"
+            app:destination="@id/wordsListCorrectionFragment" />
+        <action
+            android:id="@+id/action_wordslistExerciceFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordsListCorrectionFragment"
+        android:name="bzh.caerwent.learnwords.play.ui.WordsListCorrectionFragment"
+        android:label="words_list_correction_fragment"
+        tools:layout="@layout/wordslist_exercice_fragment">
+        <action
+            android:id="@+id/action_wordsListCorrectionFragment_to_welcomeFragment"
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/confWordsListFragment"
+        android:name="bzh.caerwent.learnwords.configure.ui.ConfWordsListFragment"
+        android:label="ConfWordsListFragment">
+        <action
+            android:id="@+id/action_confWordsListFragment_to_confRecordWordFragment"
+            app:destination="@id/confRecordWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confRecordWordFragment"
+        android:name="bzh.caerwent.learnwords.configure.ui.ConfRecordWordFragment"
+        android:label="ConfRecordWordFragment" />
+    <fragment
+        android:id="@+id/confGroupsListFragment"
+        android:name="bzh.caerwent.learnwords.configure.ui.ConfGroupsListFragment"
+        android:label="ConfGroupsListFragment">
+        <action
+            android:id="@+id/action_confGroupsListFragment_to_confWordsListFragment"
+            app:destination="@id/confWordsListFragment" />
+    </fragment>
+</navigation>

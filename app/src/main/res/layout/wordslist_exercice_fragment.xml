@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="bzh.caerwent.learnwords.play.ui.WordslistExerciceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".play.ui.WordslistExerciceFragment">
+
+        <TextView
+            android:id="@+id/exercice_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@{String.format(@string/exercice_label, viewModel.getCurrentIndex(), viewModel.getSession().words.size)}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/correction_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            style="@style/text_body_title"
+            android:text="@{viewModel.getIdent()}"
+            app:layout_constraintTop_toBottomOf="@id/exercice_label"
+            app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/exercice_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:enabled="@{safeUnbox(viewModel.isPlayable())}"
+            android:onClick="@{() -> viewModel.stopOrPlay()}"
+            android:text="@{viewModel.isPlaying() ? @string/config_record_stop_btn : @string/exercice_play_btn}"
+            android:textSize="20sp"
+            tools:text="@string/exercice_play_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/correction_label" />
+
+        <Button
+            android:id="@+id/exercice_next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/exercice_next_btn"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/exercice_play_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

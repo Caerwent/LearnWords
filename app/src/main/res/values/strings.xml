@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Learn words</string>
+
+    <string name="app_permission_dialog_title">Permissions</string>
+    <string name="app_permission_dialog_msg">Please, accept required permissions.</string>
+    <string name="app_permission_dialog_ok_btn">OK</string>
+
+
+    <string name="welcome_play_btn">Start</string>
+    <string name="welcome_manage_btn">Configure</string>
+    <string name="config_add_group_input_hint">write the new list name</string>
+    <string name="config_record_word_input_hint">write the word to record</string>
+
+    <string name="config_record_record_btn">record</string>
+    <string name="config_record_stop_btn">stop</string>
+    <string name="config_record_play_btn">play</string>
+    <string name="config_record_ok_btn">ok</string>
+
+
+    <string name="selection_title">Sélectionner les listes à jouer</string>
+    <string name="selection_launch_btn">Commencer</string>
+
+    <string name="exercice_label">Cliquer pour écouter le mot %1$s/%2$s</string>
+    <string name="exercice_play_btn">Ecouter</string>
+    <string name="exercice_next_btn">Suivant</string>
+
+</resources>
