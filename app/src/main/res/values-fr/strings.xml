@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Learn words</string>
+
+    <string name="app_permission_dialog_title">Permissions</string>
+    <string name="app_permission_dialog_msg">Veuillez accepter les permissions nécessaires.</string>
+    <string name="app_permission_dialog_ok_btn">OK</string>
+
+    <string name="welcome_play_title">Accueil</string>
+    <string name="welcome_play_btn">Commencer</string>
+    <string name="welcome_manage_btn">Configurer</string>
+    <string name="config_add_group_input_hint">Ecrire le nom de la liste</string>
+    <string name="config_record_word_input_hint">Ecrire le mot à enregistrer</string>
+
+    <string name="config_title">Configuration</string>
+    <string name="config_record_record_btn">Enregistrer</string>
+    <string name="config_record_stop_btn">Stop</string>
+    <string name="config_record_play_btn">Ecouter</string>
+    <string name="config_record_ok_btn">OK</string>
+
+    <string name="selection_title">Sélection</string>
+    <string name="selection_label">Sélectionnez les listes à jouer</string>
+    <string name="selection_input_choice">Je n\'ai ni papier ni crayon</string>
+    <string name="selection_launch_btn">Commencer</string>
+
+    <string name="exercice_title">Exercice</string>
+    <string name="exercice_label">Cliquez pour écouter le mot %1$s/%2$s</string>
+    <string name="exercice_play_btn">Ecouter</string>
+    <string name="exercice_next_btn">Suivant</string>
+    <string name="exercice_success_check">Correct</string>
+    <string name="exercice_input_hint">Ecrire le texte entendu</string>
+
+    <string name="correction_title">Correction</string>
+
+    <string name="score_title">Score</string>
+    <string name="score_label">votre score</string>
+    <string name="score_result">%1$s/%2$s</string>
+    <string name="score_ok_btn">OK</string>
+
+</resources>

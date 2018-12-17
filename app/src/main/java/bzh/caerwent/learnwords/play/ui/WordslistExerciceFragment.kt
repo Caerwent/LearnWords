@@ -31,7 +31,12 @@ open class WordslistExerciceFragment : Fragment() {
         var session = arguments?.getSerializable(WordslistExerciceFragment.ARG_SESSION) as WordsListSession
 
 
-        mViewModel = ViewModelProviders.of(this,
+        mViewModel = createViewModel(session)
+    }
+
+    protected open fun createViewModel(session: WordsListSession) : WordslistExerciceViewModel
+    {
+        return ViewModelProviders.of(this,
                 ListViewModelFactory {
                     WordslistExerciceViewModel(session)
                 }).get(WordslistExerciceViewModel::class.java)
@@ -55,15 +60,24 @@ open class WordslistExerciceFragment : Fragment() {
         mViewModel.play()
     }
 
+    protected open fun navigateToEndOfSession() {
+        var bundle: Bundle = Bundle()
+        bundle.putSerializable(WordslistExerciceFragment.ARG_SESSION, mViewModel.getSession())
+        mViewNavController.navigate(R.id.action_wordslistExerciceFragment_to_wordsListCorrectionFragment, bundle)
+    }
     protected open fun doOnNext() {
         var idx = mViewModel.getCurrentIndex()?.value ?: 0;
         var nb = mViewModel.getSession().words.size
+
+        if(mViewModel.getSession().useInput)
+        {
+            mViewModel.getSession().words.get(idx).response = response_input.text.toString()
+            response_input.setText("")
+        }
         if (idx < nb-1) {
             mViewModel.incrCurrentIndex()
         } else {
-            var bundle: Bundle = Bundle()
-            bundle.putSerializable(WordslistExerciceFragment.ARG_SESSION, mViewModel.getSession())
-            mViewNavController.navigate(R.id.action_wordslistExerciceFragment_to_wordsListCorrectionFragment, bundle)
+            navigateToEndOfSession()
         }
     }
 

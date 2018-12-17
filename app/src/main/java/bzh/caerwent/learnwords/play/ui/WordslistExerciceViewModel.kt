@@ -5,16 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import bzh.caerwent.learnwords.common.ui.PlaySoundViewModel
 import bzh.caerwent.learnwords.play.data.model.WordsListSession
 
-open class WordslistExerciceViewModel(session: WordsListSession) : PlaySoundViewModel(session.words.get(0).item, session.words.get(0).group) {
-    private var mSession: WordsListSession
-    private var mCurrentIndex = MutableLiveData<Int>()
+open class WordslistExerciceViewModel(session: WordsListSession, hasResponseEditor: Boolean = false) : PlaySoundViewModel(session.words.get(0).item, session.words.get(0).group) {
+    protected var mSession: WordsListSession
+    protected var mCurrentIndex = MutableLiveData<Int>()
 
 
     init {
         mSession = session
         mCurrentIndex.value = 0
-
     }
+
 
     fun getSession(): WordsListSession {
         return mSession

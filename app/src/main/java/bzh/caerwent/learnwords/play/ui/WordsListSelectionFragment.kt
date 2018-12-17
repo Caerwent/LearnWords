@@ -60,11 +60,13 @@ class WordsListSelectionFragment : Fragment() {
             mViewModel.getAdapter().setData(list)
         })
         selection_launch_btn.setOnClickListener { onValidation() }
+        selection_input_choice.setOnCheckedChangeListener({ button, checked -> mViewModel.mUseInput = checked })
     }
 
     protected fun onValidation() {
         var selectionMap = mViewModel.getAdapter().getDataSelection()
         var session = WordsListSession()
+        session.useInput = mViewModel.mUseInput
         for ((k, v) in selectionMap) {
             if (v) {
 

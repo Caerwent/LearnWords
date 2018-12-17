@@ -19,6 +19,11 @@ class WelcomeFragment : Fragment() {
     protected lateinit var mViewNavController: NavController
     private lateinit var viewModel: WelcomeViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(WelcomeViewModel::class.java)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -36,11 +41,6 @@ class WelcomeFragment : Fragment() {
         button_start.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_wordsListSelectionFragment))
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(WelcomeViewModel::class.java)
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater?.inflate(R.menu.main_menu, menu);

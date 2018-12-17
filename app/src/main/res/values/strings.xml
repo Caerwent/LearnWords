@@ -6,22 +6,35 @@
     <string name="app_permission_dialog_ok_btn">OK</string>
 
 
+    <string name="welcome_play_title">Home</string>
     <string name="welcome_play_btn">Start</string>
     <string name="welcome_manage_btn">Configure</string>
     <string name="config_add_group_input_hint">write the new list name</string>
     <string name="config_record_word_input_hint">write the word to record</string>
 
+    <string name="config_title">Configuration</string>
     <string name="config_record_record_btn">record</string>
     <string name="config_record_stop_btn">stop</string>
     <string name="config_record_play_btn">play</string>
     <string name="config_record_ok_btn">ok</string>
 
+    <string name="selection_title">Selection</string>
+    <string name="selection_label">Select groups to be played</string>
+    <string name="selection_input_choice">I have no paper</string>
+    <string name="selection_launch_btn">Start</string>
 
-    <string name="selection_title">Sélectionner les listes à jouer</string>
-    <string name="selection_launch_btn">Commencer</string>
+    <string name="exercice_title">Exercice</string>
+    <string name="exercice_label">Click to listen word %1$s/%2$s</string>
+    <string name="exercice_play_btn">Listen</string>
+    <string name="exercice_next_btn">Next</string>
+    <string name="exercice_success_check">Correct</string>
+    <string name="exercice_input_hint">write the listened text</string>
 
-    <string name="exercice_label">Cliquer pour écouter le mot %1$s/%2$s</string>
-    <string name="exercice_play_btn">Ecouter</string>
-    <string name="exercice_next_btn">Suivant</string>
+    <string name="correction_title">Correction</string>
+
+    <string name="score_title">Score</string>
+    <string name="score_label">Your score</string>
+    <string name="score_result">%1$s/%2$s</string>
+    <string name="score_ok_btn">ok</string>
 
 </resources>

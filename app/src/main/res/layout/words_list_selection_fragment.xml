@@ -39,11 +39,23 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <CheckBox
+            android:id="@+id/selection_input_choice"
+            style="@style/text_body"
+            android:checked="@{viewModel.mUseInput}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selection_input_choice"
+            app:layout_constraintBottom_toTopOf="@+id/selection_launch_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/selection_launch_btn"
+            app:layout_constraintBottom_toTopOf="@+id/selection_input_choice"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selection_title" />
