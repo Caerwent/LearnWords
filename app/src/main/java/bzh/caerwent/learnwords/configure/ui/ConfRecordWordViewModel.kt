@@ -23,7 +23,6 @@ class ConfRecordWordViewModel(theIdent: String, theGroupIdent: String) : PlaySou
     }
 
 
-
     init {
         mIdent.value = theIdent
         mGroupIdent.value = theGroupIdent
@@ -38,8 +37,6 @@ class ConfRecordWordViewModel(theIdent: String, theGroupIdent: String) : PlaySou
     }
 
 
-
-
     fun record() {
         if (mIsPlaying.value ?: false) {
             mPlayer?.release()
@@ -50,6 +47,7 @@ class ConfRecordWordViewModel(theIdent: String, theGroupIdent: String) : PlaySou
             mRecorder?.release()
             mRecorder = MediaManager.INSTANCE.startRecord(mIdent.value!!, mGroupIdent.value!!)
             mIsRecording.value = true
+            mIsPlayable.value = false
             mRecorder?.setOnInfoListener { mediaRecorder, what, extra ->
                 if (what == MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
                     stopRecord()
@@ -72,15 +70,13 @@ class ConfRecordWordViewModel(theIdent: String, theGroupIdent: String) : PlaySou
         mRecorder?.stop()
         mIsRecording.value = false
 
-        if (!WordsListProvider.INSTANCE.isFileLoaded(mGroupIdent.value!!, mIdent.value!!)) {
+        if (WordsListProvider.INSTANCE.isFileExists(mGroupIdent.value!!, mIdent.value!!)) {
             mIsPlayable.value = true
             WordsListProvider.INSTANCE.loadList() // force to reload
         } else {
             mIsPlayable.value = false
         }
     }
-
-
 
 
     override fun onCleared() {

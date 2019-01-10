@@ -45,7 +45,12 @@ class WordsListCorrectionFragment : WordslistExerciceFragment() {
 
     override fun navigateToEndOfSession() {
         var bundle: Bundle = Bundle()
-        var score = ((mViewModel as WordslistCorrectionViewModel).getScore() * 20) / mViewModel.getSession().words.size
+
+        var nb = mViewModel.getSession().words.size
+        if (mViewModel.getSession().maxItems > 0 && mViewModel.getSession().maxItems < nb) {
+            nb = mViewModel.getSession().maxItems
+        }
+        var score = ((mViewModel as WordslistCorrectionViewModel).getScore() * 20) / nb
         bundle.putSerializable(WordslistScoreFragment.ARG_SCORE, score)
         mViewNavController.navigate(R.id.action_wordsListCorrectionFragment_to_wordslistScoreFragment, bundle)
     }

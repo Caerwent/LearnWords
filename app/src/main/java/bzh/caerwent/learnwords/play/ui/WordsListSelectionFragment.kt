@@ -1,6 +1,8 @@
 package bzh.caerwent.learnwords.play.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +30,28 @@ class WordsListSelectionFragment : Fragment() {
 
     protected var mViewNavController: NavController? = null
     private lateinit var mViewModel: WordsListSelectionViewModel
+
+    private var mAddItemTextWatcher = object : TextWatcher {
+
+        override fun beforeTextChanged(var1: CharSequence, var2: Int, var3: Int, var4: Int) {
+
+        }
+
+        override fun onTextChanged(var1: CharSequence, var2: Int, var3: Int, var4: Int) {
+
+        }
+
+        override fun afterTextChanged(var1: Editable) {
+            val result = var1.toString().trim()
+            if (!var1.toString().equals(result)) {
+                var1.clear()
+                var1.append(result)
+            } else {
+                mViewModel.mMaxItems = result.toInt()
+            }
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,12 +85,14 @@ class WordsListSelectionFragment : Fragment() {
         })
         selection_launch_btn.setOnClickListener { onValidation() }
         selection_input_choice.setOnCheckedChangeListener({ button, checked -> mViewModel.mUseInput = checked })
+        selection_max_input.addTextChangedListener(mAddItemTextWatcher)
     }
 
     protected fun onValidation() {
         var selectionMap = mViewModel.getAdapter().getDataSelection()
         var session = WordsListSession()
         session.useInput = mViewModel.mUseInput
+        session.maxItems = mViewModel.mMaxItems
         for ((k, v) in selectionMap) {
             if (v) {
 

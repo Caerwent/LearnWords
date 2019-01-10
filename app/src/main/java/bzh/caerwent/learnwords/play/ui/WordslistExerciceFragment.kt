@@ -34,8 +34,7 @@ open class WordslistExerciceFragment : Fragment() {
         mViewModel = createViewModel(session)
     }
 
-    protected open fun createViewModel(session: WordsListSession) : WordslistExerciceViewModel
-    {
+    protected open fun createViewModel(session: WordsListSession): WordslistExerciceViewModel {
         return ViewModelProviders.of(this,
                 ListViewModelFactory {
                     WordslistExerciceViewModel(session)
@@ -65,16 +64,20 @@ open class WordslistExerciceFragment : Fragment() {
         bundle.putSerializable(WordslistExerciceFragment.ARG_SESSION, mViewModel.getSession())
         mViewNavController.navigate(R.id.action_wordslistExerciceFragment_to_wordsListCorrectionFragment, bundle)
     }
+
     protected open fun doOnNext() {
         var idx = mViewModel.getCurrentIndex()?.value ?: 0;
         var nb = mViewModel.getSession().words.size
 
-        if(mViewModel.getSession().useInput)
-        {
-            mViewModel.getSession().words.get(idx).response = response_input.text.toString()
+        if (mViewModel.getSession().maxItems > 0 && mViewModel.getSession().maxItems < nb) {
+            nb = mViewModel.getSession().maxItems
+        }
+
+        if (mViewModel.getSession().useInput) {
+            mViewModel.getSession().words.get(idx).response = response_input.text.toString().trim()
             response_input.setText("")
         }
-        if (idx < nb-1) {
+        if (idx < nb - 1) {
             mViewModel.incrCurrentIndex()
         } else {
             navigateToEndOfSession()

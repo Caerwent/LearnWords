@@ -108,6 +108,11 @@ class WordsListProvider {
                 (mGroupList.value?.get(aGroupName)?.contains(aItem) ?: false)
     }
 
+    fun isFileExists(aGroupName: String, aItem: String): Boolean {
+        var file = File(STORAGE_LOCATION + aGroupName + "/" + aItem + MediaManager.EXT)
+        return file.exists()
+    }
+
     private fun loadListFromDisk() {
         var mainDir = File(STORAGE_LOCATION)
         if (!mainDir.exists()) {

@@ -21,10 +21,12 @@
 
         <TextView
             android:id="@+id/group_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="@{viewModel.getIdent()}"
+            style="@style/text_body_head"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="group name" />
@@ -52,7 +54,7 @@
                 android:id="@+id/name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/config_add_group_input_hint" />
+                android:hint="@string/config_record_word_input_hint" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -61,6 +63,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

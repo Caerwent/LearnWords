@@ -7,6 +7,7 @@ class WordsListSelectionViewModel : ViewModel() {
     private var mAdapter=SimpleStringSelectionAdapter()
 
     public var mUseInput = false
+    public var mMaxItems = 20
 
 
     fun getAdapter():SimpleStringSelectionAdapter

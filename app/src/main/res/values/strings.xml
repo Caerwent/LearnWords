@@ -22,6 +22,7 @@
     <string name="selection_label">Select groups to be played</string>
     <string name="selection_input_choice">I have no paper</string>
     <string name="selection_launch_btn">Start</string>
+    <string name="selection_max_items_label">Max items</string>
 
     <string name="exercice_title">Exercice</string>
     <string name="exercice_label">Click to listen word %1$s/%2$s</string>

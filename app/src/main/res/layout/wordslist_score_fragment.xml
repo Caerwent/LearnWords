@@ -21,6 +21,7 @@
 
         <TextView
             android:id="@+id/score_label"
+            style="@style/text_body_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -31,7 +32,7 @@
 
         <TextView
             android:id="@+id/score_result"
-            style="@style/text_body_title"
+            style="@style/text_body_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"

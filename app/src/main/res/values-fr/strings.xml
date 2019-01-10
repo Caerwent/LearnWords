@@ -21,6 +21,7 @@
     <string name="selection_label">Sélectionnez les listes à jouer</string>
     <string name="selection_input_choice">Je n\'ai ni papier ni crayon</string>
     <string name="selection_launch_btn">Commencer</string>
+    <string name="selection_max_items_label">Nombre maximum</string>
 
     <string name="exercice_title">Exercice</string>
     <string name="exercice_label">Cliquez pour écouter le mot %1$s/%2$s</string>
