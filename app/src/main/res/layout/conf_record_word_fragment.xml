@@ -60,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:enabled="@{safeUnbox(viewModel.isPlayable())}"
             android:text="@string/config_record_ok_btn"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
